@@ -1,3 +1,11 @@
 #!/bin/sh
 
-grunt watch &> /dev/null &
+if [ -e /tmp/gwatch.pid ]; then
+  PID=$(</tmp/gwatch.pid)
+  kill -9 $PID
+  rm -fr /tmp/gwatch.pid
+fi
+
+eval "(grunt watch &> /dev/null) &"
+PID=$!
+echo $PID > /tmp/gwatch.pid
