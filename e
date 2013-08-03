@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# a simple script to help navigate angular projects
+
 PREFIX="app/scripts"
 
 exp_target() {
